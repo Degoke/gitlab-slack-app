@@ -14,7 +14,7 @@ app.event('app_home_opened', async({ event, client, context}) => {
                 type: 'home',
                 callback_id: 'home_view'
             },
-            blockes: [
+            blocks: [
                 {
                     "type": "section",
                     "text": {
