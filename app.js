@@ -50,7 +50,7 @@ app.event('app_home_opened', async({ event, client, context}) => {
     catch(error) {
         console.log(error)
     }
-})
+});
 
 (async () => {
     const port = process.env.port || 3000
