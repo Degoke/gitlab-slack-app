@@ -8,39 +8,45 @@ const app = new App({
 
 app.event('app_home_opened', async({ event, client, context}) => {
     try {
-        const result = await client.views.publish({
-            user_id: event.user,
-            view: {
-                type: 'home',
-                callback_id: 'home_view'
-            },
-            blocks: [
+        await client.views.publish({
+            "attachments": [
                 {
-                    "type": "section",
-                    "text": {
-                        "type": 'mrkdwn',
-                        "text":"welcome to your _App's Home_* :tada:"
-                    }
-                },
-                {
-                    "type": "divider"
-                },
-                {
-                    "type": "section",
-                    "text": {
-                        "type": "mrkdwn",
-                        "text": "Empty button"
-                    }
-                },
-                {
-                    "type": "actions",
-                    "elements": [
+                    "color": "#f2c744",
+                    "blocks": [
                         {
-                            "type": "button",
+                            "type": "section",
                             "text": {
                                 "type": "plain_text",
-                                "text": "Click me!"
+                                "text": "This is a plain text section block.",
+                                "emoji": true
                             }
+                        },
+                        {
+                            "type": "section",
+                            "text": {
+                                "type": "mrkdwn",
+                                "text": "This is a mrkdwn section block :ghost: *this is bold*, and ~this is crossed out~, and <https://google.com|this is a link>"
+                            }
+                        },
+                        {
+                            "type": "section",
+                            "text": {
+                                "type": "mrkdwn",
+                                "text": "This is a section block with a button."
+                            },
+                            "accessory": {
+                                "type": "button",
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "Click Me",
+                                    "emoji": true
+                                },
+                                "value": "click_me_123",
+                                "action_id": "button-action"
+                            }
+                        },
+                        {
+                            "type": "divider"
                         }
                     ]
                 }
