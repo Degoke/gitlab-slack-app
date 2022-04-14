@@ -53,7 +53,7 @@ app.event('app_home_opened', async({ event, client, context}) => {
 });
 
 (async () => {
-    const port = process.env.port || 3000
+    const port = process.env.PORT || 3000
     await app.start(port);
 
     console.log(`App is running on ${port}`)
